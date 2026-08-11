@@ -1,0 +1,26 @@
+N: 6
+split: fold2_fixed
+split_reference_manifest: /home/grouphahieu/imagenet/UCF-Crime/phase2_clips_topk8_framelevel_top30_from_transformer_fold2/manifest_phase2_video_cv_fold2.jsonl
+phase1_score_source: top30_transformer_fold2
+phase1_score_input: /home/grouphahieu/imagenet/UCF-Crime/phase1_scores_cv/top30_transformer_fold2
+video_root: /home/grouphahieu/imagenet/UCF-Crime
+clip_data: /home/grouphahieu/imagenet/phatlam/phatlam_pipeline_paper_topk/experiments/ablation_N/clips/N6/manifest_phase2.jsonl
+model: swin_t
+model_display: Swin-T
+epochs: 50
+clip_len: 16
+image_size: 224
+batch_size: 8
+lr: 0.0001
+weight_decay: 0.0001
+pretrained: true
+device: cuda
+num_workers: 0
+seed: 42
+known_limitation: Phase 1 localizer scores (top30_transformer_fold2) were derived
+  from a model whose training set fully overlaps (185/185) with the Phase 2 fold2
+  validation videos. This bias is constant across all N values evaluated here, so
+  relative trends across N remain valid for comparison; however, absolute accuracy/F1
+  values should not be interpreted as held-out generalization performance and should
+  not be directly compared to externally reported baselines (e.g. Table 3, N=8, 41.18%)
+  without accounting for this difference in evaluation protocol.
